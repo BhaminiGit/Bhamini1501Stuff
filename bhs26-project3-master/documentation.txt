@@ -1,0 +1,32 @@
+Documentation.txt 
+
+In this project I used IndexMaxPQ that was given by the textbook authors and a slight variation of IndexMinPQ. 
+IndexMaxPQ used compareTo, which compared the Apartments by their square footage. 
+I made IndexMinPQ specific to Apartments and I made sure it compared the Apartments based on the rent. 
+
+For the indexes of the index pq’s, I used indirection. 
+I stored all the indexes in a hashmap provided by java.
+The keys were strings with the following format:
+
+ key =  address.replaceAll("[ .]","").toUpperCase() + zip + aptNum.toUpperCase() + "";
+
+I made sure there where no spaces and that all the letters were uppercase. 
+I just assigned the indexes to be the size of the PQ at the time the apartment was added. 
+I stored two separate heaps (max/min) but I only kept one hashmap for the apartments. It made it easier 
+Java’s hashmap get and put functions both have a constant run time. 
+The indexMaxPQ and the indexMinPQ have an insert and remove run time of theta(log(n)). 
+Max and min retrivals are both have a constant run time.
+
+To implement the city specific functions, I created a “list” of min/max priority queues for each city. 
+That “list” was a hashmap where the keys were the city names in all caps and the “indexes” were the indexPQ’s. 
+I stored a hashmap for each of these indexPQ’s in an array list. 
+In order to reference the hashmaps from the arrayList I added an idNum variable to the indexPQs. 
+For general apartment max and min pq’s I just set the idNum to 0. 
+But for each of the city max/min pq’s, I set the idNum to the index that corresponded to that pq’s hashmap in the arrayList. 
+I could easily access the hashmaps by index using the idNum. During remove, add, and update, I updated both the city pq’s and the general pq’s. 
+The runtime for update/remove/add for the city lists all end up having O(log(n)) runtime. Accessing the hash map is constant.
+Getting and putting in the hashmap is also constant. The the rearranging of the nodes in the heap have a runtime have O(log(n))
+
+The Apartment class had pretty much all these operations.
+AptTracker.java has the menu and pretty much all of the user interaction. 
+ 
