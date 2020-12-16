@@ -1,0 +1,28 @@
+approach.txt
+Bhamini Sundararaman
+bhs26
+
+
+My approach to keeping track of the user history.
+
+I wanted to be able to store both the word and the # of times that word had been entered.
+I wanted to make a list of tuples, but since java doesn't have tuples I made an array list of objects arrays (i have to store a string and a number, so objects).
+I used an ArrayList instead of an Linked List, because I found that an ArrayList was faster. 
+
+I would store all of the user's input in to the following data structure -> ArrayList<Object[]> where each object[] would have 2 elements. The string and the number. 
+I stored them in a file in this format -> the$1, hello$8, pool$4, classes$3 and so on.
+
+When I stored them, I would sort based on strings. When I gave predictions, I made sure to sort them based on the number. 
+I used merge sort to sort everything. The merge sort algorithm is not mine. I used one my teacher gave us in highschool. 
+I'm not sure if she published it, or took it from a different website. I just applied it to ArrayList<object[]>.
+
+I searched using a binary search. The binary search algorithm is form geeksforgeeks.org(I keep the website book marked).  So the algorithm is not mine, but I applied to ArrayList<Object[]>. 
+
+I chose merge sort and binary search because they are fast...
+Merge sort has a run time of O(nlogn).
+Binary search has a run time of(log n).
+
+
+
+
+ 
